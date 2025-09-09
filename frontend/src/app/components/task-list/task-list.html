@@ -1,0 +1,44 @@
+<div class="container">
+  <h1>Task Manager</h1>
+
+  <!-- Форма добавления задачи -->
+  <div class="add-task">
+    <input
+      type="text"
+      [(ngModel)]="newTask.title"
+      placeholder="Task title"
+      class="task-input"
+    >
+    <input
+      type="text"
+      [(ngModel)]="newTask.description"
+      placeholder="Description"
+      class="task-input"
+    >
+    <button (click)="addTask()" class="add-btn">Add Task</button>
+  </div>
+
+  <!-- Список задач -->
+  <div class="task-list">
+    <div *ngFor="let task of tasks" class="task-item" [class.completed]="task.completed">
+      <div class="task-content">
+        <h3>{{ task.title }}</h3>
+        <p>{{ task.description }}</p>
+      </div>
+      <div class="task-actions">
+        <button
+          (click)="toggleTask(task)"
+          [class.complete-btn]="!task.completed"
+          [class.undo-btn]="task.completed"
+        >
+          {{ task.completed ? 'Undo' : 'Complete' }}
+        </button>
+        <button (click)="deleteTask(task.id!)" class="delete-btn">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="tasks.length === 0" class="no-tasks">
+    No tasks yet. Add one above!
+  </div>
+</div>
