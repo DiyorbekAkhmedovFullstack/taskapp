@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/tasks")
-@CrossOrigin(origins = {"http://localhost:4200", "${app.cors.allowed-origins:http://localhost:4200}"})
+@CrossOrigin(origins = {"http://localhost:4200", "https://studiwelt.com"})
 public class TaskController {
 
     @Autowired
