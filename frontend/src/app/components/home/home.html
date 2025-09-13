@@ -1,0 +1,115 @@
+<!-- Navigation -->
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="nav-logo">
+      <h2>Studiwelt</h2>
+    </div>
+
+    <div class="nav-menu" [class.active]="isMenuOpen">
+      <a href="#" class="nav-link" (click)="scrollToSection('studienkolleg')">Studienkolleg</a>
+      <a href="#" class="nav-link" (click)="scrollToSection('university')">University</a>
+      <a href="#" class="nav-link" (click)="scrollToSection('life')">Life in Germany</a>
+      <a href="#" class="nav-link task-manager" (click)="navigateToTasks()">Task Manager</a>
+    </div>
+
+    <div class="nav-toggle" (click)="isMenuOpen = !isMenuOpen">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-container">
+    <div class="hero-content">
+      <h1 class="hero-title">Studiwelt</h1>
+      <p class="hero-description">The only one platform you need to start your journey in german higher education</p>
+      <button class="cta-button" (click)="scrollToSection('studienkolleg')">Start Your Journey</button>
+    </div>
+    <div class="hero-visual">
+      <div class="study-icon">📚</div>
+    </div>
+  </div>
+</section>
+
+<!-- Sections -->
+<section id="studienkolleg" class="section">
+  <div class="section-container">
+    <h2>Studienkolleg</h2>
+    <p>Prepare for German university entrance with specialized foundation courses.</p>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🎓</div>
+        <h3>Foundation Courses</h3>
+        <p>Intensive preparation programs</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📝</div>
+        <h3>FSP Preparation</h3>
+        <p>University entrance exam prep</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🇩🇪</div>
+        <h3>German Language</h3>
+        <p>Academic German proficiency</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="university" class="section alt-bg">
+  <div class="section-container">
+    <h2>University</h2>
+    <p>Navigate German higher education system and find your perfect study program.</p>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🏛️</div>
+        <h3>University Search</h3>
+        <p>Find the right university for you</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📋</div>
+        <h3>Application Guide</h3>
+        <p>Step-by-step application process</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💼</div>
+        <h3>Career Planning</h3>
+        <p>Plan your academic career path</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="life" class="section">
+  <div class="section-container">
+    <h2>Life in Germany</h2>
+    <p>Everything you need to know about living and studying in Germany.</p>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🏠</div>
+        <h3>Accommodation</h3>
+        <p>Find student housing options</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💶</div>
+        <h3>Financing</h3>
+        <p>Scholarships and student jobs</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🚌</div>
+        <h3>Daily Life</h3>
+        <p>Transportation and city life</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-container">
+    <p class="footer-text">made by Diyorbek Akhmedov</p>
+  </div>
+</footer>
