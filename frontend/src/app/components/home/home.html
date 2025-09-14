@@ -2,20 +2,14 @@
 <nav class="navbar">
   <div class="nav-container">
     <div class="nav-logo">
-      <h2>Studiwelt</h2>
+      <a href="/" style="text-decoration: none; color: inherit;"><h2>Studiwelt</h2></a>
     </div>
 
-    <div class="nav-menu" [class.active]="isMenuOpen">
-      <a href="#" class="nav-link" (click)="scrollToSection('studienkolleg')">Studienkolleg</a>
-      <a href="#" class="nav-link" (click)="scrollToSection('university')">University</a>
-      <a href="#" class="nav-link" (click)="scrollToSection('life')">Life in Germany</a>
-      <a href="#" class="nav-link task-manager" (click)="navigateToTasks()">Task Manager</a>
-    </div>
-
-    <div class="nav-toggle" (click)="isMenuOpen = !isMenuOpen">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
+    <div class="nav-menu">
+      <a href="#studienkolleg" class="nav-link">Studienkolleg</a>
+      <a href="#university" class="nav-link">University</a>
+      <a href="#life" class="nav-link">Life in Germany</a>
+      <a href="/tasks" class="nav-link task-manager">Task Manager</a>
     </div>
   </div>
 </nav>

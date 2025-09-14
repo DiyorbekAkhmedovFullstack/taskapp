@@ -16,9 +16,12 @@ export class TaskListComponent implements OnInit {
   tasks: Task[] = [];
   newTask: Task = { title: '', description: '', completed: false };
 
-  constructor(private taskService: TaskService, private router: Router) { }
+  constructor(private taskService: TaskService, private router: Router) {
+    console.log('TaskListComponent constructor called');
+  }
 
   ngOnInit(): void {
+    console.log('TaskListComponent ngOnInit called');
     this.loadTasks();
   }
 
