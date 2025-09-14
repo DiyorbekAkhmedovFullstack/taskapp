@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="header">
+    <button type="button" class="back-btn" (click)="goHome()">← Zurück zur Startseite</button>
+    <h1>C-Test Generator</h1>
+  </div>
+
+  <div class="instruction-card">
+    <h3>Wie funktioniert ein C-Test?</h3>
+    <p>Geben Sie einen deutschen Text mit mindestens 2 Sätzen ein. Der erste Satz bleibt unverändert,
+      ab dem zweiten Satz wird bei jedem zweiten Wort die zweite Hälfte entfernt.</p>
+  </div>
+
+  <div class="input-section">
+    <label for="inputText">Deutschen Text eingeben:</label>
+    <textarea
+      id="inputText"
+      [(ngModel)]="inputText"
+      placeholder="Beispiel: Das ist ein Beispieltext. Heute lernen wir die deutsche Sprache. Sie ist sehr interessant und wichtig für das Studium."
+      rows="8"
+      class="text-input"
+      [disabled]="isLoading">
+    </textarea>
+
+    <div class="error-message" *ngIf="errorMessage">
+      {{ errorMessage }}
+    </div>
+
+    <button
+      type="button"
+      (click)="generateTest()"
+      class="generate-btn"
+      [disabled]="isLoading || !inputText.trim()">
+      <span *ngIf="isLoading">Generiere Test...</span>
+      <span *ngIf="!isLoading">C-Test erstellen</span>
+    </button>
+  </div>
+
+  <div class="example-section">
+    <h4>Beispieltext:</h4>
+    <div class="example-text">
+      "Deutschland ist ein Land in Europa. Es h__ vi___ int_____ St____ u__ ei__ ri____ Ku____.
+      Vi___ Me_____ le____ do__ u__ st_____ De____."
+    </div>
+    <p class="example-note">So würde ein generierter C-Test aussehen.</p>
+  </div>
+</div>

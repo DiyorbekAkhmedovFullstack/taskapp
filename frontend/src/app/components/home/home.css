@@ -123,9 +123,11 @@ body {
 }
 
 .cta-button {
+  display: inline-block;
   background: #2563eb;
   color: white;
   padding: 15px 30px;
+  text-decoration: none;
   border: none;
   border-radius: 8px;
   font-size: 1.1rem;
@@ -136,6 +138,7 @@ body {
 
 .cta-button:hover {
   background: #1d4ed8;
+  color: white;
   transform: translateY(-2px);
   box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
 }

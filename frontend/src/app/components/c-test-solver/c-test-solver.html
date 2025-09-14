@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="header">
+    <button type="button" class="back-btn" (click)="goBack()">← Neuen Test erstellen</button>
+    <h1>C-Test lösen</h1>
+  </div>
+
+  <div class="test-info">
+    <p><strong>Aufgabe:</strong> Ergänzen Sie die fehlenden Buchstaben in den Wörtern.</p>
+    <p><strong>Anzahl der Lücken:</strong> {{ testData?.totalGaps }}</p>
+  </div>
+
+  <div class="test-content" *ngIf="testData">
+    <div class="test-text">
+      <span *ngFor="let word of testWords; let i = index" class="word">
+        <span *ngIf="!isGap(word)">{{ word }}</span>
+        <span *ngIf="isGap(word)" class="gap-word">
+          {{ getWordBeforeGap(word) }}<input
+          type="text"
+          [(ngModel)]="userAnswers[getGapIndex(i)]"
+          class="gap-input"
+          [maxlength]="word.split('_').length - 1"
+        />{{ getWordAfterGap(word) }}
+        </span>
+        {{ ' ' }}
+      </span>
+    </div>
+  </div>
+
+  <div class="progress-section">
+    <div class="progress-bar">
+      <div class="progress-fill" [style.width.%]="(filledAnswersCount / (testData?.totalGaps || 1)) * 100"></div>
+    </div>
+    <p class="progress-text">
+      {{ filledAnswersCount }} / {{ testData?.totalGaps }} ausgefüllt
+    </p>
+  </div>
+
+  <div class="submit-section">
+    <button
+      type="button"
+      (click)="submitTest()"
+      class="submit-btn"
+      [disabled]="isLoading">
+      <span *ngIf="isLoading">Auswertung...</span>
+      <span *ngIf="!isLoading">Test auswerten</span>
+    </button>
+  </div>
+</div>

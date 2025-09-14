@@ -1,0 +1,76 @@
+<div class="container" *ngIf="result">
+  <div class="header">
+    <button type="button" class="back-btn" (click)="goHome()">← Zur Startseite</button>
+    <h1>C-Test Ergebnis</h1>
+  </div>
+
+  <!-- Score Card -->
+  <div class="score-card" [ngClass]="getScoreClass()">
+    <div class="score-circle">
+      <div class="score-number">{{ result.score.toFixed(0) }}</div>
+      <div class="score-label">Punkte</div>
+    </div>
+    <div class="score-details">
+      <h2>{{ result.feedback }}</h2>
+      <p class="score-fraction">
+        {{ result.correctAnswers }} von {{ result.totalQuestions }} richtig
+      </p>
+    </div>
+  </div>
+
+  <!-- Performance Analysis -->
+  <div class="analysis-section">
+    <h3>Leistungsanalyse</h3>
+    <div class="progress-container">
+      <div class="progress-bar-full">
+        <div
+          class="progress-fill-full"
+          [style.width.%]="result.score"
+          [style.background-color]="getScoreColor()">
+        </div>
+      </div>
+      <div class="score-markers">
+        <span class="marker" style="left: 50%">50%</span>
+        <span class="marker" style="left: 70%">70%</span>
+        <span class="marker" style="left: 90%">90%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Detailed Answers -->
+  <div class="answers-section">
+    <h3>Detaillierte Auswertung</h3>
+    <div class="answers-grid">
+      <div
+        *ngFor="let userAnswer of result.userAnswers; let i = index"
+        class="answer-item"
+        [ngClass]="getAnswerClass(i)">
+        <div class="answer-number">{{ i + 1 }}</div>
+        <div class="answer-content">
+          <div class="user-answer">
+            <span class="answer-label">Ihre Antwort:</span>
+            <span class="answer-value">{{ userAnswer || '(leer)' }}</span>
+          </div>
+          <div class="correct-answer">
+            <span class="answer-label">Richtig:</span>
+            <span class="answer-value">{{ result.correctAnswersList[i] }}</span>
+          </div>
+        </div>
+        <div class="answer-status">
+          <span *ngIf="getAnswerClass(i) === 'answer-correct'" class="status-correct">✓</span>
+          <span *ngIf="getAnswerClass(i) === 'answer-incorrect'" class="status-incorrect">✗</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Action Buttons -->
+  <div class="action-section">
+    <button type="button" (click)="createNewTest()" class="primary-btn">
+      Neuen Test erstellen
+    </button>
+    <button type="button" (click)="goHome()" class="secondary-btn">
+      Zur Startseite
+    </button>
+  </div>
+</div>
