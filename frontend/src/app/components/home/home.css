@@ -150,7 +150,7 @@ body {
 }
 
 .study-icon {
-  font-size: 12rem;
+  font-size: 16rem;
   animation: float 3s ease-in-out infinite;
 }
 
@@ -291,22 +291,23 @@ body {
     align-items: center;
     width: 200px;
     height: 200px;
-  }
-
-  .study-icon svg {
-    width: 100%;
-    height: 100%;
-    max-width: 200px;
-    max-height: 200px;
-  }
-
-  @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
-  }
-
-  .study-icon {
     animation: float 3s ease-in-out infinite;
+    color: #3b82f6;
+  }
+
+  .study-icon i {
+    font-size: 8rem;
+  }
+
+  @media (max-width: 768px) {
+    .study-icon {
+      width: 120px;
+      height: 120px;
+    }
+
+    .study-icon i {
+      font-size: 5rem;
+    }
   }
 
   /* Mobile responsive */
